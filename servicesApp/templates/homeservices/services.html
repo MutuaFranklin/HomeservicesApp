@@ -1,0 +1,52 @@
+{% extends 'homeservices/base.html' %}
+{% load static%}
+{% block content %}
+<div id="wrapper">
+
+	<!-- start header -->
+    {% include "homeservices/navbar.html" %} 
+
+	<!-- end header -->
+
+	<section id="content">
+		<div id="headline">
+			<h2>Services</h2>
+
+		</div>
+		
+		<div class="container content">	
+            <div class="row">
+				<div class="skill-home">
+					<div class="skill-home-solid clearfix">
+						{% for service in services %}
+						<div class="col-md-3 text-center custom-card" style="margin: 0px;">
+							<div class="box" style="margin-bottom: 5px;">
+								{% if service.service_image %}
+								<img src="{{service.service_image.url}}" alt="" style=" height: 20rem; width: 100%;">
+								<!-- <span class="icons c1"><i class="fas fa-faucet"></i></i></span> -->
+								
+								{% else %}
+								<img src="{% static 'images/service.jpeg' %}" alt="" style="margin: 1px; height: 20rem; width:100%;">
+								{% endif %}
+								<div class="box-area">
+									<h3>{{service.service_title}}</h3>
+									<p>{{service.description|truncatechars:45}}</p>
+									<p><a href="{% url 'single_service' service.service_title %}">See Providers</a></p>
+								</div>
+							</div>
+						</div>
+						{% empty %}
+						<p>No registered service</p>
+						{% endfor%}
+					</div>
+				</div>
+			</div>
+           
+
+
+        
+        </div>
+    </section>
+</div>
+
+{% endblock%}
