@@ -180,7 +180,7 @@ if config('MODE')=="dev":
 else:
    DATABASES = {
        'default': dj_database_url.config(
-           default=config('AWARDS_DB')
+           default=config('HOMESERVICES_DB')
        )
    }
 
