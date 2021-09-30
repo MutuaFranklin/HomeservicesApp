@@ -141,7 +141,7 @@ def portfolio(request):
     }
     return render(request, 'homeservices/portfolio.html', context)
 
-ip ='154.122.77.79'
+# ip ='154.122.77.79'
 def userProfile(request, username):
     current_user = request.user
     user = get_object_or_404(User, username=username)
@@ -163,11 +163,11 @@ def userProfile(request, username):
         reviewForm = ReviewForm()
    
 
-    # x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    # if x_forwarded_for:
-    #     ip = x_forwarded_for.split(',')[0]
-    # else:
-    #     ip = request.META.get('REMOTE_ADDR')
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
     res = requests.get('http://ip-api.com/json/'+ ip)
     location_data_one = res.text
     location_data = json.loads(location_data_one)
