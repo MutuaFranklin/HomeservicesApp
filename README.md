@@ -79,7 +79,7 @@ Run source virtual/bin/activate to activate the virtual environment and python m
 
 ## Live link
 
-Live link: [HomeservicesApp live link](https://awardsbyfrank.herokuapp.com/)
+Live link: [HomeservicesApp live link](https://pyhomeservicies.herokuapp.com/)
 
 ## Support and contact details
 
