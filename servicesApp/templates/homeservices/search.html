@@ -1,0 +1,83 @@
+{%extends 'homeservices/base.html'%}
+{% load static %}
+{% block content %}
+<div id="wrapper" style="margin-bottom:30%;">
+
+	<!-- start header -->
+		{% include "homeservices/navbar.html" %} 
+	<!-- end header -->
+
+	<section id="content">
+    <div id="headline">
+			<h2>Search Results</h2>
+
+		</div>
+    <div class="container search">
+      <div class="row">
+        {% if services %}
+        <h6 class="mt-5 result">Found {{ services|length }} service(s): {{s_message}}</h6>
+        {% for service in services %}
+        <div class="col-md-3 text-center" style="margin-bottom: 2px;">
+          <div class="box" style="margin-bottom: 5px;">
+            {% if service.service_image %}
+            <img src="{{service.service_image.url}}" alt="" style=" margin: 1px; height: 20rem; width: 100%;">
+            <!-- <span class="icons c1"><i class="fas fa-faucet"></i></i></span> -->
+            
+            {% else %}
+            <img src="{% static 'images/service.jpeg' %}" alt="" style="margin: 1px; height: 20rem; width:100%;">
+            {% endif %}
+            <div class="box-area">
+              <h3>{{service.service_title}}</h3>
+              <p>{{service.description|truncatechars:45}}</p>
+              <p><a href="{% url 'single_service' service.service_title %}">See Providers</a></p>
+            </div>
+          </div>
+        </div>
+        {% empty%}
+    
+        {%endfor%}
+        {% else %}
+        <h6 class="mt-5 result"> Found 0 service: {{s_message}}</h6>
+        {% endif %}
+    
+      </div>
+    
+      <div class="row">
+    
+        {% if  profiles %}
+            <h6 class="mt-5 result">Found {{ profiles|length }} profile(s): {{p_message}}</h6>
+          {% for profile in profiles %}
+              {% if request.user.profile.current_location == profile.current_location%}
+    
+        
+              <div class="col-md-3 text-center">
+                <div class="box">
+                  {% if profile.profile_pic %}
+                  <img src="{{profile.profile_pic.url}}" alt="" style="margin: 1px; height: 20rem; width: 100%;">
+    
+                  {% else %}
+                  <img src="{% static 'images/avartar.jpg' %}" alt="" style=" margin: 1px; height: 20rem; width: 100%;">
+                  {% endif %}
+                  <div class="box-area">
+                    <h3>{{profile.user.username}}</h3>
+                    <p>{{profile.gender}}</p>
+                    <p><a href="{% url 'profile' profile.user.username%}">Learn More</a></p>
+                  </div>
+                </div>
+              </div>
+              {% else %}
+    
+              {%endif%}
+    
+    
+          {%endfor%}
+        {% else %}
+        <h6 class="mt-5 result"> Found 0 profile: {{p_message}}</h6>
+        {% endif %}
+      </div>
+    </div>
+	</section>
+	
+</div>
+
+{% endblock %}

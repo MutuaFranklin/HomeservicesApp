@@ -1,0 +1,90 @@
+{% extends 'homeservices/base.html'%}
+{% load static %}
+{% block content %}
+
+<div id="wrapper" class="home-page">
+	<!-- start header -->
+	{% include "homeservices/navbar.html" %}
+
+	<!-- end header -->
+	<section id="banner">
+
+		<!-- Slider -->
+		<!-- <div id="main-slider" class="flexslider">
+			<ul class="slides">
+				<li>
+					<img src="{% static 'images/slides/1.jpg' %}" alt="flexslider" />
+					<div class="flex-caption">
+						<h3>Home Services</h3>
+
+						<p>Bringing professional and client satisfying utility services near you!</p>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'images/slides/2.jpg' %}" alt="flexslider" />
+					<div class="flex-caption">
+						<h3>Affordable Services</h3>
+						<p>Thank you for choosing Reliable and yet Affordable Services from HomeServices  </p>
+					</div>
+				</li>
+			</ul>
+		</div> -->
+		<div class="main-background">
+
+		</div>
+
+		<!-- end slider -->
+
+	</section>
+	<section class="jumbobox">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div>
+						<h1>Home Services</h1>
+						<h5>The home services industry works on various aspects of residential homes. In this platform you will find many services including the following:</h5>
+					
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="content">
+		<div class="container">
+			<div class="row">
+				<div class="skill-home">
+					<div class="skill-home-solid clearfix">
+						{% for service in services %}
+						<div class="col-md-3 text-center">
+							<div class="box">
+								{% if service.service_image %}
+								<img src="{{service.service_image.url}}" alt="" style="margin: 1px; height: 20rem; width: 100%;">
+								<!-- <span class="icons c1"><i class="fas fa-faucet"></i></i></span> -->
+								
+								{% else %}
+								<img src="{% static 'images/service.jpeg' %}" alt="" style="margin: 1px; height: 20rem; width: 100%;">
+								{% endif %}
+								<div class="box-area">
+									<h3>{{service.service_title}}</h3>
+									<p>{{service.description|truncatechars:45}}</p>
+									<p><a href="{% url 'single_service' service.service_title %}">See Providers</a></p>
+								</div>
+							</div>
+						</div>
+						{% empty %}
+						<p>No registered service</p>
+						{% endfor%}
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	    {% include "homeservices/footer.html" %}
+
+</div>
+
+
+{% endblock %}
