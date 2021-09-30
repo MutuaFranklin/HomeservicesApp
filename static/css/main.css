@@ -159,16 +159,9 @@ label{
     color: black !important;
 }
  
-/* SIGNUP */
 
-/* .form-control {
-	height: 40px;
-	box-shadow: none;
-	color: #969fa4;
+/* REVIEW */
+
+.review-btn{
+    margin-top: 1rem;
 }
-.form-control:focus {
-	border-color: #5cb85c;
-}
-.form-control, .btn {
-	border-radius: 3px;
-} */
