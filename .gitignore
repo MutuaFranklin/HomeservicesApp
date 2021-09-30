@@ -1,0 +1,5 @@
+virtual/
+.env
+notes.txt
+trials.py
+.*pyc/

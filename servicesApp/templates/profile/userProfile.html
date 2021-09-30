@@ -1,0 +1,236 @@
+{% extends 'homeservices/base.html' %}
+{% load static%}
+{% block content %}
+<div id="wrapper">
+
+
+	<!-- start header -->
+	{% include "homeservices/navbar.html" %}
+
+
+
+
+	<section id="content">
+		<div id="headline">
+			<h2>Profile</h2>
+
+		</div>
+		<div class="container">
+			
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profile</a>
+					</li>
+					<li role="presentation">
+						<a href="#reviews" aria-controls="tab" role="tab" data-toggle="tab">Reviews 
+							<spa style=" font-size: 13px; font-weight: bold; color: brown;">
+								{{reviews.count}}
+							</spa>
+						</a>
+					</li>
+					<!-- {{geodata.lat}} -->
+				</ul>
+			
+				
+			</div>
+			
+
+			<div class="about">
+
+				<section class="features">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+
+									<div class="col-lg-5" style="display: flex; flex-direction: column; align-items: center;">
+										{% if profile.profile_pic %}
+					
+										<div class="profile-header-img">
+											<img src="{{profile.profile_pic.url}}" alt=""style="height: 300px; width: 300px;" />
+										</div>
+					
+										{% else %}
+										<div class="profile-header-img">
+											<img src="{% static 'images/avartar.jpg' %}" style="height: 300px; width: 300px;" alt="" />
+										</div>
+										{% endif %}
+										
+										<div class="profile-details" style="display: flex; flex-direction: column; align-items: center;">
+											<h5>{{profile.user.username}}</h5>
+											<h6>{{profile.gender}}</h6>
+											<h6 class="small">{{profile.bio}}</h6>
+											<div class="row">
+												{% if profile.user.id == request.user.id %}
+												<div class="col-sm-12">
+													<a class="btn btn-info " href="{% url 'update-profile' profile.user.id%}">Edit Profile</a>
+												</div>
+												{% else %}
+												<a class="btn btn-info " href="">Message</a>
+												{% endif %}
+											</div>
+											<h5>Mapped location</h5>
+											<div id='map' style='width: 400px; height: 300px;'></div>
+											<script>
+											var lon =("{{geodata.lon}}")
+											var lat = ("{{geodata.lat}}")
+											mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmtmcmVlayIsImEiOiJja3UzbTJweXUxbzNsMm5wY2N4aXBqanc4In0.KhFSPcVfPwzGzN-_o90gtg';
+											var map = new mapboxgl.Map({
+												container: 'map',
+												// street
+												style: 'mapbox://styles/mapbox/streets-v11',
+												// satelite view
+												// style: 'mapbox://styles/mapbox/satellite-streets-v10',
+												// center: [36.8198, -1.28642],
+												center: [lon, lat],
+												zoom: 10,
+												// bearing: 180
+
+											});
+											</script>
+											
+										</div>
+									</div>
+									<div class="col-lg-7">
+										<div class="card mb-3">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Full Name</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.user.first_name}} {{profile.user.last_name}}
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Email</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.user.email}}
+													</div>
+												</div>
+												<hr>
+					
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Mobile</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.mobile}}
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Home Location</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.home_location}}
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Current Location</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{geodata.city}}
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Main service</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.main_service}}
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Secondary service I</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.secondary_service_one}}
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-sm-3">
+														<h6 class="mb-0">Secondary service II</h6>
+													</div>
+													<div class="col-sm-9 text-secondary">
+														{{profile.secondary_service_two}}
+													</div>
+												</div>
+												<hr>
+										
+											</div>
+										</div>
+									</div>
+								</div>
+							
+						
+							</div>
+						</div>
+					
+					</div>
+				</section>
+				<div class="col-md-12">
+					<div id="review-header">
+						<h2>Reviews</h2>
+						<hr>
+						{% if request.user.id != profile.user.id%}
+						<button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#reviewModal">Review this Profile</button>
+							{% include "modals/reviewModal.html" %}
+
+						{% endif %}
+
+					</div>
+					<div id="reviews">
+						{% for review in reviews %}
+						<div class="jumbotron" style="margin-top: 10px;">
+							<div class="container">
+								<fieldset class="starability-result mx-auto m-3" data-rating={{review.rating}}></fieldset>
+								<h5 class="text-mute m-4" style="margin-top: 25px;">{{review.task_description}}</h5>
+								<h6 class="fw-light small m-4">{{review.review}}</h6>
+								<h6 class="text-mute m-4"><a href="{% url 'single_service' review.service %}">#{{review.service}}</a></h6>
+								<h6 class="text-mute m-4">Reviewed by<a href="{%url 'profile' review.reviewed_by%}"> {{review.reviewed_by}}</a> <span class="text-mute fw-light"> {{review.reviewed_on|timesince}} ago</span></h6>
+
+	
+							</div>
+						</div>
+		
+						{% empty %}
+						
+						<p class="fw-light">
+							No reviews
+						</p>
+						
+						{% endfor%}
+
+
+					</div>
+
+				
+
+				</div>
+
+
+
+			
+
+
+			</div>
+
+		</div>
+	</section>
+
+</div>
+
+{% endblock %}

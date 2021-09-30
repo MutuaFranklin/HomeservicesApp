@@ -1,0 +1,46 @@
+{% extends 'homeservices/base.html' %}
+{% load static%}
+{% block content %}
+<div id="wrapper">
+
+	<!-- start header -->
+	{% include "homeservices/navbar.html" %}
+
+	<!-- end header -->
+	
+	<section id="content">
+		<div id="headline">
+			<h2>Edit Profile</h2>
+
+		</div>
+		<div class="container">
+
+			<div class="about">
+
+				<section class="features">
+					<div class="container" style="display: flex; justify-content: center;">
+						<div class="col-md-5">
+								<form method="post" enctype="multipart/form-data"> 
+							{% csrf_token %} 
+							{{ form.as_p }} 
+							<input type="submit" value="Save"> 
+						</form> 
+			
+						</div>
+
+					
+					</div>
+				</section>
+	
+				<br>
+		
+
+
+			</div>
+
+		</div>
+	</section>
+
+</div>
+
+{% endblock %}

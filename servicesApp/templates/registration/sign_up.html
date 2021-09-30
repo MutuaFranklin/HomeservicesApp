@@ -1,0 +1,57 @@
+{%extends "homeservices/base.html"%}
+{% load static%}
+{% load bootstrap5 %}
+{% block content %}
+
+<div id="wrapper">
+
+	<!-- start header -->
+		{% include "homeservices/navbar.html" %} 
+	<!-- end header -->
+
+	<section id="content">
+    <div id="headline">
+			<h2>Signup</h2>
+
+		</div>
+	<div class="container signup">
+    <div class="col-md-5 signup-form">
+      {% if reg_form.errors %}
+        <p> Some Information Might be Incorrect </p>
+      {% endif %}
+      <div class="panel panel-default mt-1">
+
+        <div class="panel-heading">
+          <!-- <h2 class="text-center fw-light">Sign Up form</h2> -->
+        </div>
+        <div class="panel-body">
+
+         
+          <form action="" method="post" class="register-form fw-light m-2">
+            {% csrf_token %}
+            {% bootstrap_form reg_form%}
+           
+            <div class=" d-grid gap-1">
+              <button class="btn btn-primary" type="submit">Sign Up</button>
+            </div> 
+          <input type="hidden" name="next" value="{{next}}">
+          </form>
+        
+          <div class="card m-2">
+            <div class="card-body mt-1 mb-1 mr-3 ml-3 dont-account d-flex justify-content-center">
+                <p class="fw-bold small"> Have an account? <a href="{% url 'login' %}" class="me-5">Log in</a></p>
+            </div>
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
+	</div>
+	</section>
+	
+</div>
+
+
+{% endblock %}

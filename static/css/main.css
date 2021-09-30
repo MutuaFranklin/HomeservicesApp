@@ -1,0 +1,174 @@
+/* LOGIN */
+.login{
+    display: flex;
+    justify-content:center ;
+    margin-top: 2%;
+    margin-bottom: 8%;
+
+}
+
+.signup{
+    display: flex;
+    justify-content:center ;
+    margin-bottom: 2%;
+
+
+}
+
+
+.main-background{
+    height: 70rem;
+    background-image: url("/static/images/home-painter.jpg");
+    /* background-image: url('https://smartguy.com/webservice/storage/category/painting-contractors.jpg'); */
+    background-size: cover;
+}
+
+#headline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#headline h2{
+    color: rgb(224, 151, 15);
+}
+
+.custom-card{
+    column-gap: 1px !important;
+    border: 1px solid rgb(236, 230, 230);
+    background-color: rgba(229, 228, 238, 0.5);
+}
+
+
+
+/* LOGIN */
+
+.form-control {
+	font-size: 16px;
+	transition: all 0.4s;
+	box-shadow: none;
+}
+.form-control:focus {
+	border-color: #5cb85c;
+}
+.form-control, .btn {
+	border-radius: 50px;
+	outline: none !important;
+}
+.signin-form {
+	width: 400px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.signin-form form {
+	border-radius: 5px;
+	margin-bottom: 20px;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 40px;
+}
+.signin-form a {
+	color: #eb8f17;
+}
+.signin-form h2 {
+	text-align: center;
+	font-size: 34px;
+	margin: 10px 0 15px;
+}
+.signin-form .hint-text {
+	color: #999;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.signin-form .form-group {
+	margin-bottom: 20px;
+}
+.signin-form .btn {
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: bold;
+	text-align: center;
+}
+.signin-form .small {
+	font-size: 13px;
+}
+.signin-btn {
+	text-align: center;
+	border-color: #5cb85c;
+	transition: all 0.4s;
+}
+.signin-btn:hover {
+	background: #5cb85c;
+	opacity: 0.8;
+}
+.or-seperator {
+	margin: 50px 0 15px;
+	text-align: center;
+	border-top: 1px solid #e0e0e0;
+}
+.or-seperator b {
+	padding: 0 10px;
+	width: 40px;
+	height: 40px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	background: #fff;
+	display: inline-block;
+	border: 1px solid #e0e0e0;
+	border-radius: 50%;
+	position: relative;
+	top: -22px;
+	z-index: 1;
+}
+.social-btn .btn {
+	color: #fff;
+	margin: 10px 0 0 30px;
+	font-size: 15px;
+	width: 55px;
+	height: 55px;
+	line-height: 45px;
+	border-radius: 50%;
+	font-weight: normal;
+	text-align: center;
+	border: none;
+	transition: all 0.4s;
+}
+.social-btn .btn:first-child {
+	margin-left: 0;
+}
+.social-btn .btn:hover {
+	opacity: 0.8;
+}
+.social-btn .btn-primary {
+	background: #507cc0;
+}
+.social-btn .btn-info {
+	background: #64ccf1;
+}
+.social-btn .btn-danger {
+	background: #df4930;
+}
+.social-btn .btn i {
+	font-size: 20px;
+}
+
+
+label{
+    color: black !important;
+}
+ 
+/* SIGNUP */
+
+/* .form-control {
+	height: 40px;
+	box-shadow: none;
+	color: #969fa4;
+}
+.form-control:focus {
+	border-color: #5cb85c;
+}
+.form-control, .btn {
+	border-radius: 3px;
+} */

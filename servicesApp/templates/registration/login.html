@@ -1,0 +1,108 @@
+{%extends "homeservices/base.html"%}
+{% load static%}
+{% load socialaccount %}
+{% load bootstrap5 %}
+{% block content %}
+<div id="wrapper">
+
+	<!-- start header -->
+		{% include "homeservices/navbar.html" %} 
+	<!-- end header -->
+
+	<section id="content">
+    <div id="headline">
+			<h2>Login</h2>
+
+		</div>
+	<div class="container login">
+    <!-- <div class="col-md-5 login-form ">
+      {% if form.errors %}
+        <p> Password or Username is incorrect </p>
+      {% endif %}
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h5 class="text-center fw-light">Sign In</h5>
+        </div>
+        <div class="panel-body">
+
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="info">
+              <label for="floatingInput" style="margin-top: 5px;">Username</label>
+
+              <div class="form-floating mb-3 info" >
+                <input type="text" name="username" class="form-control username" id="floatingInput"
+                  placeholder="Username">
+              </div>
+              <label for="floatingPassword" style="margin-top: 5px;">Password</label>
+              <div class="form-floating info">
+                <input type="password" name="password" class="form-control email" id="floatingPassword"
+                  placeholder="Password">
+              </div>
+            </div>
+            
+      
+              <div class="d-grid gap-1 mt-3 login-btn" style="margin-top: 10px;">
+                <button class=" btn btn-outline-primary" type="submit">Sign In</button>
+              </div>
+              <div class="help" style="margin-top: 15px; display: flex; justify-content: space-between;">
+                <div class="">
+                  <input class="form-check-input " type="checkbox" value="True" id="flexCheckDefault">
+                  <label class="form-check-label fw-light" for="flexCheckDefault">
+                    Remember Me
+                  </label>
+                 
+                </div>
+                <label class="form fw-light" for="flexCheckDefault">
+                  Forgot password
+                </label>
+               </div>
+               <div class="social-auth">
+                 <a href="{% provider_login_url 'google' %}">Login with Google</a>
+                 <p class="fw-light">Don't have an account?<a href="{% url 'register' %}"> Register</a></p>
+ 
+               </div>
+          </form>
+          
+
+        </div>
+
+      </div>
+
+    </div> -->
+<div class="signin-form">
+  <form action="" method="post">
+    {% csrf_token %}
+      <!-- <h2>Signin form</h2> -->
+      <p class="hint-text">Sign in with your social media account</p>
+      <div class="social-btn text-center">
+        <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fab fa-facebook"></i></i></a>
+        <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="btn btn-danger btn-lg" title="Google"><i class="fab fa-google"></i></a>
+      </div>
+      <div class="or-seperator"><b>or</b></div>
+      <div class="form-group">
+        <input name=username type="text" class="form-control input-lg"  placeholder="Username"
+          required="required">
+      </div>
+      <div class="form-group">
+        <input name= password type="password" class="form-control input-lg"  placeholder="Password"
+          required="required">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block signin-btn">
+          Sign in
+        </button>
+      </div>
+      <div class="text-center small"><a href="#">Forgot Your password?</a></div>
+    </form>
+    <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>
+  </div>
+		
+	</div>
+	</section>
+	
+</div>
+
+{% endblock %}
