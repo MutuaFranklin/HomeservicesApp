@@ -1,16 +1,16 @@
-# AppAwards
+# HomeservicesApp
 
 
 ### Description
 
-A django application inspired by Awwards that will allow a user to post a project he/she has created and get it reviewed by his/her peers.
+A web platform where you can easily access reliable and professional home and utility services from experts near you
 ### Author
 
 **Franklin Mutua** - [Github link](https://github.com/MutuaFranklin/)
 
 ### Date of current version
 
-18/09/2021
+30/09/2021
 
 ## Project setup instructions
 
@@ -32,7 +32,7 @@ PostgreSQL
 
 When you create a repository on GitHub, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations. Here is a series of steps on how to set up the project on your local machine.
 
-Click [AppAwards](https://github.com/MutuaFranklin/App-Awards) to navigate on the main page of the project repository on Github.
+Click [HomeservicesApp](https://github.com/MutuaFranklin/HomeservicesApp) to navigate on the main page of the project repository on Github.
 
 ```
 Clone the repository using HTTPS, click "Clone with HTTPS".
@@ -43,12 +43,12 @@ Open Terminal. Change the current working directory to the location where you wa
 ```
 
 ```
-Type https://github.com/MutuaFranklin/App-Awards and press Enter to create your local clone.
+Type https://github.com/MutuaFranklin/HomeservicesApp and press Enter to create your local clone.
 
 ```
 
 ```
-Open AppAwards, the cloned Repo in terminal and run : pip install -r requirements.txt to install the app dependencies
+Open HomeservicesApp, the cloned Repo in terminal and run : pip install -r requirements.txt to install the app dependencies
 
 ```
 
@@ -60,15 +60,14 @@ Run source virtual/bin/activate to activate the virtual environment and python m
 ## BDD
     As a user, I would like to:
 
-- View posted projects and their details
-- Post a project to be rated/reviewed
-- Rate/ review other users' projects
-- Search for projects 
-- View projects overall score
-- View my profile page
-- Access data from your application using Profile and Project endpoints
-- Profile - This endpoint should return all the user profiles with information such as the username, bio, projects of the user and profile picture
-- Projects- This endpoint should return information pertaining to all the projects posted in your application.
+- Register and signin to the app
+- View all available services
+- View all professional experts for each service whom we share same location
+- Search for profile and service 
+- Review and rate a service provider profile
+- View my and service provider profiles
+- Update my profile
+
 
 ## Technologies Used
 - Python Django Framework
@@ -76,10 +75,11 @@ Run source virtual/bin/activate to activate the virtual environment and python m
 - Bootstrap
 - CSS
 - PostgreSQL
+- Mapbox
 
 ## Live link
 
-Live link: [AppAwards live link](https://awardsbyfrank.herokuapp.com/)
+Live link: [HomeservicesApp live link](https://awardsbyfrank.herokuapp.com/)
 
 ## Support and contact details
 
